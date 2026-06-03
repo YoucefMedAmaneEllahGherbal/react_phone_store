@@ -14,9 +14,9 @@ function App() {
   return (
     <div className="App">
       <ProductList>
+        <ProductCard background="darkolivegreen" product={product1} />
         <ProductCard product={product1} />
-        <ProductCard product={product1} />
-        <ProductCard product={product1} />
+        <ProductCard background="peru" product={product1} />
       </ProductList>
       
     </div>

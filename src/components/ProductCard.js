@@ -1,18 +1,19 @@
-export function ProductCard(props)
+export function ProductCard({product , background ="slategray"})
 {
 
 
   return (
     <article style={{border : '1px solid white' ,
+      background,
       width:'100%',
      borderRadius:'8px',
      padding:'16px',
      textAlign:'center'
      }}>
       <h2>
-        {props.product.title}
+        {product.title}
       </h2>
-      <img src={props.product.imageSrc}
+      <img src={product.imageSrc}
       alt='iphone 13 Pro'
       width={"128px"}
       height={"128px"}
@@ -21,16 +22,16 @@ export function ProductCard(props)
         Specification
         <ul style={{listStyle:'none', padding:0}}>
           <li>
-            {props.product.specification[0]}
+            {product.specification[0]}
           </li>
           <li>
-             {props.product.specification[1]}
+             {product.specification[1]}
           </li>
           <li>
-             {props.product.specification[2]}
+             {product.specification[2]}
           </li>
         </ul>
-        <button>Buy (from {props.product.price}$)</button>
+        <button>Buy (from {product.price}$)</button>
       </p>
     </article>
   );
