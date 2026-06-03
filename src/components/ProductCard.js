@@ -1,4 +1,6 @@
-export function ProductCard({product , background ="slategray"})
+export function ProductCard({product , background ="slategray", 
+  ...restProps
+})
 {
 
 
@@ -15,8 +17,7 @@ export function ProductCard({product , background ="slategray"})
       </h2>
       <img src={product.imageSrc}
       alt='iphone 13 Pro'
-      width={"128px"}
-      height={"128px"}
+      {...restProps}
       />
       <p>
         Specification
