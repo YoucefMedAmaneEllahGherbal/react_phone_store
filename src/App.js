@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import './components/ProductList'
+
+import { ProductCard } from './components/ProductCard';
+import { ProductList } from './components/ProductList';
 
 function App() {
+  const product1 = {
+        imageSrc :"images/iphone-4.png",
+        title : "Iphone 13 Pro",
+        specification : ["A17 Pro processor","Good Camera","BTf Owner"],
+        price : 999,
+    };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ProductList>
+        <ProductCard product={product1} />
+        <ProductCard product={product1} />
+        <ProductCard product={product1} />
+      </ProductList>
+      
     </div>
   );
 }
