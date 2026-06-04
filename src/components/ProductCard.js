@@ -1,8 +1,4 @@
-export function ProductCard({product , background ="slategray", onPurchase,
-  ...restProps
-  
-})
-{
+export function ProductCard({ product, background = "slategray", onPurchase }) {
   return (
     <article style={{border : '1px solid white' ,
       background,
@@ -15,21 +11,16 @@ export function ProductCard({product , background ="slategray", onPurchase,
         {product.title}
       </h2>
       <img src={product.imageSrc}
-      alt='iphone 13 Pro'
-      {...restProps}
+      alt={product.title}
+      width={"128px"}  height={"128px"}
       />
       <p>
         Specification
         <ul style={{listStyle:'none', padding:0}}>
-          <li>
-            {product.specification[0]}
-          </li>
-          <li>
-             {product.specification[1]}
-          </li>
-          <li>
-             {product.specification[2]}
-          </li>
+
+          {product.specification.map((spec,idx) => (
+            <li key={idx}>{spec}</li>
+          ))}
         </ul>
         <button onClick={()=>onPurchase(product)}>Buy (from {product.price}$)</button>
       </p>

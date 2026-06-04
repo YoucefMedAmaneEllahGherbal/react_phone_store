@@ -28,23 +28,40 @@ function App() {
   return (
     <div className="App">
       <ProductList>
-        <ProductCard background="darkolivegreen"
-         width='90px' height='90px' 
-         product={products[0]} 
+        {
+          products.map(product => <ProductCard 
+            key={product.title}
+         product={product} 
          onPurchase={handlePurchase}
-         />
-        <ProductCard 
-        width='128px' height='128px' 
-        product={products[1]}
-        onPurchase={handlePurchase}
-        />
-        <ProductCard  
-        width='90px' height='90px' background="peru" 
-        product={products[2]} 
-        onPurchase={handlePurchase}
-        />
+         />)
+        }
       </ProductList>
-      
+      <h2>Products that cost up tp 500$ :</h2>
+      <ul>
+        {products.filter(({price})=> price<500).map(({title , price}) => <li>
+          {title} Costs ${price}
+        </li>)}
+      </ul>
+
+      <h2>
+        Products that cost more than 500$
+      </h2>
+
+      <ul>
+        {products.filter(({price}) => price>1000).map(({title , price}) =>
+        <li>
+          {title} costs ${price}
+        </li>)}
+      </ul>
+
+      <h2>
+        Porducts that cost more than 1k$
+      </h2>
+      <uL>
+        {products.filter(({price}) => price > 1000).map(({title , price}) => <li>
+          {title} costs ${price}
+        </li>)}
+      </uL>
     </div>
   );
 }
