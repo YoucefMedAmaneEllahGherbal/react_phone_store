@@ -1,16 +1,15 @@
-export function ProductCard({product , background ="slategray", 
+export function ProductCard({product , background ="slategray", onPurchase,
   ...restProps
+  
 })
 {
-
-
   return (
     <article style={{border : '1px solid white' ,
       background,
       width:'100%',
      borderRadius:'8px',
      padding:'16px',
-     textAlign:'center'
+     textAlign:'center',
      }}>
       <h2>
         {product.title}
@@ -32,7 +31,7 @@ export function ProductCard({product , background ="slategray",
              {product.specification[2]}
           </li>
         </ul>
-        <button>Buy (from {product.price}$)</button>
+        <button onClick={()=>onPurchase(product)}>Buy (from {product.price}$)</button>
       </p>
     </article>
   );
